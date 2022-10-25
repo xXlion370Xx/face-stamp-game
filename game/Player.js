@@ -1,10 +1,9 @@
 export default class Player {
-    constructor(name, games, wins, loses, bet) {
-        this.name = name;
+    constructor(games = 0, wins = 0, loses = 0, bet = 0) {
         this.games = games;
         this.wins = wins;
         this.loses = loses;
-        this.bet = bet
+        this.bet = bet;
     }
 
     setName(name) {
@@ -19,12 +18,11 @@ export default class Player {
         this.wins = wins;
     }
 
-
-    setGames(loses) {
+    setLoses(loses) {
         this.loses = loses;
     }
 
-    setGames(bet) {
+    setBet(bet) {
         this.bet = bet;
     }
 }
