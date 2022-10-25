@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="module" defer src="main.js"></script>
+    <script type="module" defer src="game/Game.js"></script>
     <title>Game</title>
 </head>
 
@@ -13,12 +14,14 @@
     <main>
         <h1>Face - Stamp Game</h1>
 
-        <h2>Payer 1</h2>
+        <h2>Payer</h2>
 
         <label>
             Enter your bet
-            <input type="text">
+            <input type="text" id="bet">
         </label>
+        <button id="btnBet">do bet</button>
+
         <label>
             Select Option coin
             <select name="" id="optionCoin">
@@ -26,12 +29,11 @@
                 <option value="1">Stamp</option>
             </select>
         </label>
-        <script src="game/Game.js"></script>
+
         <section class="bets">
             <h2>bets</h2>
             <ul>
-                <li>Player 1: 0</li>
-                <li>Player 2: 0</li>
+                <li id="playerBet">Player: 0</li>
             </ul>
         </section>
 
