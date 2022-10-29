@@ -1,22 +1,5 @@
-import { gamePlayer, randomFaceCoin, showProgress, showResult } from "./game/Game.js";
+import { gamePlayer, handleBet, randomFaceCoin, showProgress, showResult, showStatisticsPlayer } from "./game/Game.js";
 
-/**
- * Write the statistics player on a ul list
- * @param {Object} Player 
- */
-function showStatisticsPlayer(Player) {
-    const statistics = document.getElementById('playerStatistics');
-
-    statistics.innerHTML = `
-            <h2>Tus estadisticas</h2>
-            <ul>
-                <li>Juegos: ${Player.games}</li>
-                <li>Victorias: ${Player.wins}</li>
-                <li>Derrotas: ${Player.loses}</li>
-                <li>Tu dinero: ${Player.bet}</li>
-                <li>Cara del moneda: ${Player.coin}</li>
-            </ul>`
-}
 
 const board = document.getElementById('board');
 const play = () => {
@@ -35,8 +18,9 @@ const play = () => {
      * Show the progress game
      */
     let resultGame = showResult(coin.face, player.coin);
+    let resultHandleBet = handleBet(resultGame, player.bet);
     showProgress(board, player, coin, resultGame);
-    showStatisticsPlayer(player);
+    showStatisticsPlayer(player, resultHandleBet);
 
 }
 const btnPLay = document.getElementById('btn-play');
