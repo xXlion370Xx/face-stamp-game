@@ -1,9 +1,9 @@
 export default class Coin {
-    constructor(state = undefined) {
-        this.state = state;
+    constructor(face = undefined) {
+        this.face = face;
     }
 
-    setState(state) {
-        this.state = state;
+    setFace(face) {
+        this.face = face;
     }
 }
