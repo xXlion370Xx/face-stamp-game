@@ -21,10 +21,24 @@ export const gamePlayer = () => {
     const optionCoin = document.getElementById('optionCoin');
 
     const P = new Player();
-    P.setBet(bet.value);
+    let betToInt = parseInt(bet.value);
+    P.setBet(betToInt);
     P.setCoin(turnNumberToFace(optionCoin.value));
 
     return P;
+}
+
+/**
+ * Function to handle the bet depending the result of the game
+ * @param {String} resultGame 
+ * @param {int} bet 
+ * @returns A int bet param / 2 if the result game equals "Perdiste", else param bet * 2 
+ */
+export const handleBet = (resultGame, bet) => {
+    if (resultGame == "Perdiste") {
+        return bet / 2;
+    }
+    return bet * 2;
 }
 
 /**
@@ -58,4 +72,23 @@ export const showProgress = (board, player, coin, resultGame) => {
         Tu apuesta: ${player.bet} <br>
         ${resultGame}
     `;
+}
+
+/**
+* Write the statistics player on a ul list
+* @param {Object} Player 
+* @param {String} handleBet
+*/
+export function showStatisticsPlayer(Player, handleBet) {
+    const statistics = document.getElementById('playerStatistics');
+
+    statistics.innerHTML = `
+           <h2>Tus estadisticas</h2>
+           <ul>
+               <li>Juegos: ${Player.games}</li>
+               <li>Victorias: ${Player.wins}</li>
+               <li>Derrotas: ${Player.loses}</li>
+               <li>Tu dinero: ${handleBet}</li>
+               <li>Cara del moneda: ${Player.coin}</li>
+           </ul>`
 }
