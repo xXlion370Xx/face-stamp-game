@@ -1,34 +1,42 @@
-import Coin from "./game/Coin.js";
-import { compareResult, doBet, selectFaceCoin } from "./game/Game.js";
+import { gamePlayer, randomFaceCoin, showProgress, showResult } from "./game/Game.js";
 
-function turnNumberToFace(num) {
-    num == 0 ? num = "Cara" : num = "Sello";
-    return num;
+/**
+ * Write the statistics player on a ul list
+ * @param {Object} Player 
+ */
+function showStatisticsPlayer(Player) {
+    const statistics = document.getElementById('playerStatistics');
+
+    statistics.innerHTML = `
+            <h2>Tus estadisticas</h2>
+            <ul>
+                <li>Juegos: ${Player.games}</li>
+                <li>Victorias: ${Player.wins}</li>
+                <li>Derrotas: ${Player.loses}</li>
+                <li>Tu dinero: ${Player.bet}</li>
+                <li>Cara del moneda: ${Player.coin}</li>
+            </ul>`
 }
 
-const showResult = (result) => result == true ? "Ganaste" : "Perdiste";
-
+const board = document.getElementById('board');
 const play = () => {
-    const game = document.getElementById('game');
 
-    let faceCoin = Math.floor(Math.random() * 2);
-    const C = new Coin(faceCoin);
-    C.setFace = faceCoin;
+    /**
+     * get random face coin
+     */
+    const coin = randomFaceCoin();
 
-    let playerCoin = selectFaceCoin();
+    /**
+     * Get object player
+     */
+    const player = gamePlayer();
 
-    let resultGame = compareResult(C.face, playerCoin);
-    console.log(playerCoin)
-
-    const playerBet = doBet();
-    game.innerHTML =
-        `<h1>Tu juego</h1>
-        Cara de la moneda: ${turnNumberToFace(C.face)} <br>
-        Tu seleccion: ${turnNumberToFace(playerCoin)} <br>
-        Tu apuesta: ${playerBet.bet} <br>
-        ${showResult(resultGame)}
-        `;
-
+    /** 
+     * Show the progress game
+     */
+    let resultGame = showResult(coin.face, player.coin);
+    showProgress(board, player, coin, resultGame);
+    showStatisticsPlayer(player);
 
 }
 const btnPLay = document.getElementById('btn-play');
