@@ -1,14 +1,9 @@
 export default class Coin {
-    constructor(stamp, face) {
-        this.stamp = stamp;
-        this.face = face;
+    constructor(state = undefined) {
+        this.state = state;
     }
 
-    setStamp(stamp) {
-        this.stamp = stamp;
-    }
-
-    setFace(face) {
-        this.face = face;
+    setState(state) {
+        this.state = state;
     }
 }
