@@ -1,5 +1,28 @@
 import Coin from "./Coin.js";
-import Player from "./Player.js";
+
+/**
+ * Create a button to upload the page when the player click the "Jugar" button
+ * @param {DOMObject} board 
+ */
+export function newGame(board) {
+    // Check if the element is already inserted
+    let checkExistElement = document.querySelector(".new-game")
+    console.log(checkExistElement);
+
+    // If the element is not created, the element created
+    if (!checkExistElement) {
+        let newGameButton = document.createElement("button");
+        newGameButton.className = "new-game";
+        newGameButton.innerText = "Iniciar nueva partida"
+        board.appendChild(newGameButton);
+
+        newGameButton.addEventListener("click", () => {
+            location.reload();
+        })
+    }
+
+    return;
+}
 
 /**
  * Select a random face coin and returns it
@@ -14,7 +37,7 @@ export const randomFaceCoin = () => {
 
 /**
  * Select the bet DOM element value and set property player.bet
- * @param {Object} player
+ * @param {ObjectConstructor} player
  * @returns Value of bet player object
  */
 export const doBet = (player) => {
@@ -27,7 +50,7 @@ export const doBet = (player) => {
 
 /**
  * Select the coin DOM element and set property player.coin
- * @param {Object} player 
+ * @param {ObjectConstructor} player 
  * @returns Value of coin face player selected
  */
 export const selectFaceCoin = (player) => {
@@ -38,10 +61,11 @@ export const selectFaceCoin = (player) => {
     return player.coin;
 }
 
+
 /**
  * Function to handle the bet depending the result of the game
  * @param {String} resultGame
- * @param {Object} player 
+ * @param {ObjectConstructor} player 
  * @returns A int bet param / 2 if the result game equals "Perdiste", else param bet * 2 
  */
 export const handleBet = (resultGame, player) => {
@@ -73,8 +97,8 @@ const turnNumberToFace = (num) => num == 0 ? "Cara" : "Sello";
 /**
  * Function write the progress of the player
  * @param {DOMObject} board 
- * @param {Object} player 
- * @param {Object} coin 
+ * @param {ObjectConstructor} player 
+ * @param {ObjectConstructor} coin 
  * @param {String} resultGame
  */
 export const showProgress = (board, player, coin, resultGame) => {
@@ -95,7 +119,7 @@ export const showProgress = (board, player, coin, resultGame) => {
 
 /**
 * Write the statistics player on a ul list
-* @param {Object} Player 
+* @param {ObjectConstructor} Player 
 * @param {String} handleBet 
 */
 export function showStatisticsPlayer(Player, handleBet) {
@@ -112,12 +136,17 @@ export function showStatisticsPlayer(Player, handleBet) {
            </ul>`
 }
 
+/**
+ * If the result game equals to "Ganaste" add 1 to player.wins property else add 1 to player.loses property
+ * @param {String} resultGame 
+ * @param {ObjectConstructor} player 
+ */
 export const handleGameStatistics = (resultGame, player) => {
     let wins = player.wins;
-
+    let loses = player.loses;
     if (resultGame == "Ganaste") {
         player.setWins(wins + 1);
     } else {
-        player.setLoses(wins - 1);
+        player.setLoses(loses + 1);
     }
 }

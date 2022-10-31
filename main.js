@@ -1,4 +1,4 @@
-import { handleBet, randomFaceCoin, showProgress, getResult, showStatisticsPlayer, handleGameStatistics, doBet, selectFaceCoin } from "./game/Game.js";
+import { handleBet, randomFaceCoin, showProgress, getResult, showStatisticsPlayer, handleGameStatistics, doBet, selectFaceCoin, newGame } from "./game/Game.js";
 import Player from "./game/Player.js";
 
 const player = new Player();
@@ -8,13 +8,14 @@ btnAcept.addEventListener("click", () => {
     /**
         * Set player.bet and player.coin property
         */
-
     doBet(player);
     selectFaceCoin(player);
 })
 
 const board = document.getElementById('board');
 const play = () => {
+    newGame(board);
+
     let games = player.games;
     player.setGames(games + 1);
 
@@ -28,6 +29,7 @@ const play = () => {
      */
     let resultGame = getResult(coin.face, player.coin);
     let resultHandleBet = handleBet(resultGame, player);
+
     showProgress(board, player, coin, resultGame);
     handleGameStatistics(resultGame, player);
     showStatisticsPlayer(player, resultHandleBet);
