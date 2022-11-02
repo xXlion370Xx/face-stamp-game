@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="module" defer src="main.js"></script>
     <script type="module" defer src="game/Game.js"></script>
+    <link rel="stylesheet" href="css/style.css">
     <title>Game</title>
 </head>
 
@@ -14,29 +15,30 @@
     <main>
         <h1>Cara-Sello Juego</h1>
 
-        <h2>Jugador</h2>
-        <section>
+
+        <section class="head">
+            <h2>Jugador</h2>
             <label>
                 Ingresa tu apuesta
-                <input type="text" id="bet">
+                <input type=" text" id="bet" class="inputs">
             </label>
 
             <label>
                 Selecciona un lado de la moneda
-                <select name="" id="optionCoin">
+                <select name="" id="optionCoin" class="inputs">
                     <option value="0">Cara</option>
                     <option value="1">Sello</option>
                 </select>
             </label>
 
-            <button id="btn-acept">Aceptar</button>
+            <button class="buttons" id="btn-acept">Guardar</button>
         </section>
         <section class="player" id="playerStatistics">
 
         </section>
 
         <section>
-            <button id="btn-play">Jugar</button>
+            <button class="buttons" id="btn-play">Jugar</button>
         </section>
 
         <section id="board">

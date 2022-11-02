@@ -1,0 +1,69 @@
+/* global settings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Poppins, sans-serif;
+    color: #ffffff;
+}
+
+body {
+    background: #282f33;
+    display: flex;
+}
+
+h1 {
+    text-align: center;
+}
+
+main {
+    /* text-align: center; */
+    width: 80vw;
+    height: 100%;
+    margin: 140px auto;
+    border-radius: 15px;
+    padding: 50px;
+    background: #1d2429;
+}
+
+.head {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+label {
+    margin-top: 10px;
+}
+
+#btn-acept {
+    width: 30%;
+    height: 40px;
+    margin-top: 10px;
+    border-radius: 10px;
+    align-self: center;
+    border: none;
+}
+
+#btn-acept:hover {
+    cursor: pointer;
+}
+
+#btn-play {
+    border: none;
+    width: 100%;
+    height: 40px;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
+.inputs {
+    border: none;
+    border-radius: 5px;
+    background-color: #131a1f;
+    height: 30px;
+}
+
+.buttons {
+    background-color: #131a1f;
+}
