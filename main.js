@@ -3,8 +3,8 @@ import Player from "./game/Player.js";
 
 const player = new Player();
 
-const btnAcept = document.getElementById('btn-acept');
-btnAcept.addEventListener("click", () => {
+const btnAccept = document.getElementById('btn-acept');
+btnAccept.addEventListener("click", () => {
     /**
         * Set player.bet and player.coin property
         */
