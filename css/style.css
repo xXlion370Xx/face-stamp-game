@@ -67,3 +67,23 @@ label {
 .buttons {
     background-color: #131a1f;
 }
+
+.game {
+    padding: 10px;
+    margin-top: 15px;
+    background-color: #181f24;
+}
+
+.game ul {
+    list-style: none;
+}
+
+.new-game {
+    width: 30%;
+    height: 40px;
+    margin-top: 10px;
+    border-radius: 10px;
+    align-self: center;
+    border: none;
+    background-color: #131a1f;
+}
