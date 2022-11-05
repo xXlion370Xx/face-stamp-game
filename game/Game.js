@@ -70,7 +70,7 @@ export const selectFaceCoin = (player) => {
  */
 export const handleBet = (resultGame, player) => {
     if (resultGame == "Perdiste") {
-        player.setBet(player.bet / 2);
+        player.setBet(player.bet - player.bet);
         return player.bet;
     }
 
@@ -111,7 +111,7 @@ export const showProgress = (board, player, coin, resultGame) => {
         <ul>
             <li>Cara de la moneda: ${turnNumberToFace(coin.face)}</li>
             <li>Tu seleccion: ${turnNumberToFace(player.coin)}</li>
-            <li>Tu apuesta: ${player.bet}</li>
+            <li>Tu dinero: ${player.bet}</li>
             <li>${resultGame}</li>
         </ul>
     `;

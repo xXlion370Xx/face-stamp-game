@@ -1,14 +1,17 @@
 import { handleBet, randomFaceCoin, showProgress, getResult, showStatisticsPlayer, handleGameStatistics, doBet, selectFaceCoin, newGame } from "./game/Game.js";
 import Player from "./game/Player.js";
 
+
 const player = new Player();
 
-const btnAccept = document.getElementById('btn-acept');
-btnAccept.addEventListener("click", () => {
-    /**
-        * Set player.bet and player.coin property
-        */
+
+const inputBet = document.getElementById('bet');
+inputBet.addEventListener("change", () => {
     doBet(player);
+})
+
+const inputFace = document.getElementById('optionCoin');
+inputFace.addEventListener("change", () => {
     selectFaceCoin(player);
 })
 

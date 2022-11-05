@@ -36,25 +36,16 @@ label {
     margin-top: 10px;
 }
 
-#btn-acept {
-    width: 30%;
-    height: 40px;
-    margin-top: 10px;
-    border-radius: 10px;
-    align-self: center;
-    border: none;
-}
-
-#btn-acept:hover {
-    cursor: pointer;
-}
-
 #btn-play {
     border: none;
     width: 100%;
     height: 40px;
     margin-top: 10px;
     border-radius: 10px;
+}
+
+#btn-play:hover {
+    cursor: pointer;
 }
 
 .inputs {
