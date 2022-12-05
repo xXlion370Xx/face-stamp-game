@@ -30,9 +30,8 @@ export function newGame(board) {
  */
 export const randomFaceCoin = () => {
     let faceCoin = Math.floor(Math.random() * 2);
-    const C = new Coin(faceCoin);
 
-    return C;
+    return new Coin(faceCoin);
 }
 
 /**
